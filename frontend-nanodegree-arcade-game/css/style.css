@@ -1,0 +1,41 @@
+body {
+     text-align: center;
+     background-color: #60d6f4;
+}
+ h1 {
+     font-weight: bold;
+     font-family: sans-serif;
+     color: #32913d;
+}
+ .howToPlay {
+     position: absolute;
+     left: 20%;
+     top: 70%;
+     width: 65vw;
+     color: #1a471f;
+     font-style: italic;
+}
+ .button {
+     display: block;
+     width: 150px;
+     margin: 0 auto;
+     line-height: 50px;
+     border-radius: 5px;
+     border: 1px;
+     color: black;
+     background-color: #32913d;
+     font-weight: bold;
+     font-size: 150%;
+}
+ #looser, #winner {
+     display: none;
+     background: #60d6f4;
+     opacity: 0.9;
+     color: white;
+     padding: 15em;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     margin-right: -50%;
+     transform: translate(-50%, -50%);
+}
