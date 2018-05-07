@@ -20,7 +20,7 @@ Enemy.prototype.update = function(dt) {
     if (this.x < 505) {
         this.x += this.speed * dt;
     } else {
-        this.x = 0;
+        this.x = -100;
     }
 };
 
@@ -36,16 +36,10 @@ var Player = function() {
     this.x = 202;
     this.y = 404;
     this.score = 0;
-    this.lives = 3;
+    this.lives = 2;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/char-pink-girl.png';
-};
-
-//Re position the player once he reaches the water.
-var resetPlayer = function() {
-    player.x = 202;
-    player.y = 404;
 };
 
 //Draw the player on the canvas.
@@ -67,13 +61,16 @@ Player.prototype.update = function() {
     }
 };
 
-
-
 //Calculate score of the player
 Player.prototype.increaseScore = function() {
     if (Water) {
         this.score++;
-        setTimeout(resetPlayer, 500);
+        setTimeout(() => {
+            this.x = 202;
+        }, 500);
+		setTimeout(() => {
+            this.y = 404;
+        }, 500);
         Water = false;
     }
 };
@@ -86,7 +83,8 @@ Player.prototype.enemyCollision = function() {
     if (bug) {
         if (this.lives !== 0) {
             this.lives--;
-            resetPlayer();
+            this.x = 202;
+			this.y = 404;
         } else {
             $('#looser').show();
             $('.lost').click(function() {
